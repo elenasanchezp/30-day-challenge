@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>JS Jungle Sound Kit</title>
+		<link rel="stylesheet" href="stylesheet/style.css"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="keys">
+				
+				<div data-key="67" class="key">
+					<kdb>C</kdb>
+					<span class="sound">Canary</span>
+				</div>
+				<div data-key="69" class="key">
+					<kdb>E</kdb>
+					<span class="sound">Elephant</span>
+				</div>
+				<div data-key="76" class="key">
+					<kdb>L</kdb>
+					<span class="sound">Lion</span>
+				</div>
+				<div data-key="77" class="key">
+					<kdb>M</kdb>
+					<span class="sound">Monkey</span>
+				</div>
+				<div data-key="84" class="key">
+					<kdb>T</kdb>
+					<span class="sound">Tiger</span>
+				</div>
+				<div data-key="86" class="key">
+					<kdb>V</kdb>
+					<span class="sound">Vulture</span>
+				</div>
+
+			</div>
+
+			<audio data-key="67" src="sounds/canary.wav"></audio>
+			<audio data-key="69" src="sounds/elephant.wav"></audio>
+			<audio data-key="76" src="sounds/lion.wav"></audio>
+			<audio data-key="77" src="sounds/monkey.wav"></audio>
+			<audio data-key="84" src="sounds/tiger.wav"></audio>
+			<audio data-key="86" src="sounds/vulture.wav"></audio>
+
+			<script>
+
+				function playSound(e){
+					const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+					const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
+
+					if(!audio){
+						return;
+					}
+
+					audio.currentTime = 0;
+					audio.play();
+
+					key.classList.add('playing'); 
+				}
+
+
+				function removeTransitionend(e){
+
+					if(e.propertyName !== 'transform') return;
+					this.classList.remove('playing'); 
+				}
+
+				const keys = document.querySelectorAll('.key'); 
+				keys.forEach(key => key.addEventListener('transitionend', removeTransitionend));
+
+				window.addEventListener('keydown', playSound);
+
+			</script>
+		</div>
+	</body>
+</html>
+
+
+
