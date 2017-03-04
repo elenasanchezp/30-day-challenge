@@ -1,148 +1,192 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html>
-<head>
+  <head>
 
-<style>
-* {box-sizing:border-box;}
-ul {list-style-type: none;}
-body {font-family: Verdana,sans-serif;}
+    <title>30-day-challenge</title>
+    <style>
+    * { box-sizing:border-box;}
+    ul {list-style-type: none;}
+    body {font-family: Verdana,sans-serif;}
 
-.month {
-    padding: 70px 25px;
-    width: 100%;
-    background: #1abc9c;
-}
+    .header {
+      margin: 10px;
+    }
 
-.month ul {
-    margin: 0;
-    padding: 0;
-}
+    .calendar {
+        padding: 70px 25px;
+        width: 100%;
+    }
 
-.month ul li {
-    color: white;
-    font-size: 20px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-}
+    .month {
+        padding: 70px 25px;
+        width: 100%;
+        background: #1abc9c;
+    }
 
-.month .prev {
-    float: left;
-    padding-top: 10px;
-}
+    .month {
+        padding: 70px 25px;
+        width: 100%;
+        background: #1abc9c;
+    }
 
-.month .next {
-    float: right;
-    padding-top: 10px;
-}
+    .month ul {
+        margin: 0;
+        padding: 0;
+    }
 
-.weekdays {
-    margin: 0;
-    padding: 10px 0;
-    background-color: #ddd;
-}
+    .month ul li {
+        color: white;
+        font-size: 20px;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+    }
 
-.weekdays li {
-    display: inline-block;
-    width: 13.6%;
-    color: #666;
-    text-align: center;
-}
+    .month .prev {
+        float: left;
+        padding-top: 10px;
+    }
 
-.days {
-    padding: 10px 0;
-    background: #eee;
-    margin: 0;
-}
+    .month .next {
+        float: right;
+        padding-top: 10px;
+    }
 
-.days li {
-    list-style-type: none;
-    display: inline-block;
-    width: 13.6%;
-    text-align: center;
-    margin-bottom: 5px;
-    font-size:12px;
-    color: #777;
-}
+    .weekdays {
+        margin: 0;
+        padding: 10px 0;
+        background-color: #ddd;
+    }
 
-.days li .active {
-    padding: 5px;
-    background: #1abc9c;
-    color: white !important
-}
+    .weekdays li {
+        display: inline-block;
+        width: 13.6%;
+        color: #666;
+        text-align: center;
+    }
 
-/* Add media queries for smaller screens */
-@media screen and (max-width:720px) {
-    .weekdays li, .days li {width: 13.1%;}
-}
+    .days {
+        padding: 10px 0;
+        background: #eee;
+        margin: 0;
+    }
 
-@media screen and (max-width: 420px) {
-    .weekdays li, .days li {width: 12.5%;}
-    .days li .active {padding: 2px;}
-}
+    .days li {
+        list-style-type: none;
+        display: inline-block;
+        width: 13.6%;
+        text-align: center;
+        margin-bottom: 5px;
+        font-size:12px;
+        color: #777;
+    }
 
-@media screen and (max-width: 290px) {
-    .weekdays li, .days li {width: 12.2%;}
-}
-</style>
-</head>
-<body>
+    .days li .active {
+        padding: 5px;
+        background: #1abc9c;
+        color: white !important
+    }
 
-<h1>30 Day Challenge</h1>
+    .footer {
+        background-color: #111;
+        color: white;
+        font-size: 16px;
+        color: #aaa;
+        padding: 20px;
+        text-align: center;
+        margin: 10px;
+    }
 
-<div class="month">      
-  <ul>
-    <li class="prev"><</li>
-    <li class="next">></li>
-    <li style="text-align:center">
-      March<br>
-      <span style="font-size:18px">2017</span>
-    </li>
-  </ul>
-</div>
+    .footer a {
+        color: white;
+        margin: 0 16px;
+    }
 
-<ul class="weekdays">
-  <li>Mo</li>
-  <li>Tu</li>
-  <li>We</li>
-  <li>Th</li>
-  <li>Fr</li>
-  <li>Sa</li>
-  <li>Su</li>
-</ul>
+    /* Add media queries for smaller screens */
+    @media screen and (max-width:720px) {
+        .weekdays li, .days li {width: 13.1%;}
+    }
 
-<ul class="days">  
-  <li><span class="active"><a href="javascript-sounds-kit/index.html">1</a><span></li>
-  <li>2</li>
-  <li>3</li>
-  <li>4</li>
-  <li>5</li>
-  <li>6</li>
-  <li>7</li>
-  <li>8</li>
-  <li>9</li>
-  <li>10</li>
-  <li>11</li>
-  <li>12</li>
-  <li>13</li>
-  <li>14</li>
-  <li>15</li>
-  <li>16</li>
-  <li>17</li>
-  <li>18</li>
-  <li>19</li>
-  <li>20</li>
-  <li>21</li>
-  <li>22</li>
-  <li>23</li>
-  <li>24</li>
-  <li>25</li>
-  <li>26</li>
-  <li>27</li>
-  <li>28</li>
-  <li>29</li>
-  <li>30</li>
-  <li>31</li>
-</ul>
+    @media screen and (max-width: 420px) {
+        .weekdays li, .days li {width: 12.5%;}
+        .days li .active {padding: 2px;}
+    }
 
-</body>
+    @media screen and (max-width: 290px) {
+        .weekdays li, .days li {width: 12.2%;}
+    }
+    </style>
+  </head>
+
+  <body>
+
+    <div class="header">  
+      <h1>30 Day Challenge</h1>
+    </div>
+
+    <div class="calendar">
+      <div class="month">      
+        <ul>
+          <li class="prev"><</li>
+          <li class="next">></li>
+          <li style="text-align:center">
+            March<br>
+            <span style="font-size:18px">2017</span>
+          </li>
+        </ul>
+      </div>
+
+      <ul class="weekdays">
+        <li>Mo</li>
+        <li>Tu</li>
+        <li>We</li>
+        <li>Th</li>
+        <li>Fr</li>
+        <li>Sa</li>
+        <li>Su</li>
+      </ul>
+
+      <ul class="days">  
+        <li><span class="active"><a href="javascript-sounds-kit/index.html">1</a><span></li>
+        <li><span class="active"><a href="clock/index.html">2</a><span></li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+        <li>11</li>
+        <li>12</li>
+        <li>13</li>
+        <li>14</li>
+        <li>15</li>
+        <li>16</li>
+        <li>17</li>
+        <li>18</li>
+        <li>19</li>
+        <li>20</li>
+        <li>21</li>
+        <li>22</li>
+        <li>23</li>
+        <li>24</li>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+        <li>28</li>
+        <li>29</li>
+        <li>30</li>
+        <li>31</li>
+      </ul>
+    </div>
+
+    <div class="footer">  
+      <div class="social">
+        <a href="https://github.com/elenasanchezp" title="GitHub">GitHub</a>
+        <a href="https://www.linkedin.com/in/elena-s%C3%A1nchez-5572a726/" title="LinkedIn">LinkedIn</a>
+        <a href="https://twitter.com/elena_sanchez_p" title="Twitter">Twitter</a>
+      </div>
+    </div>
+
+  </body>
 </html>

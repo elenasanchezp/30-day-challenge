@@ -1,7 +1,12 @@
+.header {
+	margin: 10px;
+}
+
 .container {
 	background-image: url("../images/background.jpg");
     background-repeat: no-repeat; 
     background-size: cover;
+    margin: 10px;
 }
 
 .keys {
@@ -41,4 +46,19 @@
 	text-transform: uppercase;
 	letter-spacing: 1px; 
 	color: #ffc600;
+}
+
+.footer {
+    background-color: #111;
+    color: white;
+    font-size: 16px;
+    color: #aaa;
+    padding: 20px;
+    text-align: center;
+    margin: 10px;
+}
+
+.footer a {
+    color: white;
+    margin: 0 16px;
 }
