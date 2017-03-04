@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Day 2 | 30-day-challenge</title>
+		<link rel="stylesheet" href="stylesheet/style.css"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<link href='http://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'/>
+	</head>
+	<body>
+
+		<div class="header">  
+			<h1>Day 2 - Clock</h1>
+			<a href="../index.html"> Go back to Calendar </a>
+		</div>
+
+		<div class="container">
+			<div class="container_left">
+				<div class="clock">
+					<div class="clock-face">
+						<div class="hand hour-hand"></div>
+						<div class="hand minute-hand"></div>
+						<div class="hand second-hand"></div>
+					</div>
+				</div>
+			</div>
+			<div class="container_right">
+				<div class="clock-digital">
+					<div class="clock-digital-face">
+						<div class="hand-digital time-hand-digital"></div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="footer">  
+			<div class="social">
+				<a href="https://github.com/elenasanchezp" title="GitHub">GitHub</a>
+				<a href="https://www.linkedin.com/in/elena-s%C3%A1nchez-5572a726/" title="LinkedIn">LinkedIn</a>
+				<a href="https://twitter.com/elena_sanchez_p" title="Twitter">Twitter</a>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			const secondHand = document.querySelector('.second-hand');
+			const minuteHand = document.querySelector('.minute-hand');
+			const hourHand = document.querySelector('.hour-hand');
+
+			function setDate(){
+				const now = new Date();
+
+				const seconds = now.getSeconds(); 
+				const secondsDegrees = ((seconds / 60) * 360) + 90;
+				secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
+				
+				const minutes = now.getMinutes(); 
+				const minutesDegrees = ((minutes / 60) * 360) + 90;
+				minuteHand.style.transform = `rotate(${minutesDegrees}deg)`;
+
+				const hours = now.getHours(); 
+				const hoursDegrees = ((hours / 12) * 360) + 90;
+				hourHand.style.transform = `rotate(${hoursDegrees}deg)`;
+
+				hoursToString = hours.toString();
+				if (hours < 10) {
+					hoursToString = "0" + hours.toString();
+				}
+
+				minutesToString = minutes.toString();
+				if (minutes < 10) {
+					minutesToString = "0" + minutes.toString();
+				}
+
+				secondsToString = seconds.toString();
+				if (seconds < 10) {
+					secondsToString = "0" + seconds.toString();
+				}
+
+				$('.time-hand-digital').html("<p>" + hoursToString + ":"+ minutesToString + ":" + secondsToString + "</p>");
+			}
+
+			setInterval(setDate, 1000)
+		</script>
+	</body>
+</html>
+
+
+
