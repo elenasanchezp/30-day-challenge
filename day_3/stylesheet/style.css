@@ -1,0 +1,54 @@
+:root {
+    --spacing: 10px;
+    --blur: 10px;
+    --baseColor: #ffc600;
+}
+
+.header {
+    margin: 10px;
+    background-color: #111;
+    color: white;
+    padding: 20px;
+}
+
+.header a {
+    color: white;
+    margin: 0 16px;
+}
+
+.container {
+    background-repeat: no-repeat; 
+    background-size: cover;
+    margin: 10px;
+    text-align: center; 
+	font-size: 20px; 
+    min-height: 425px;
+}
+
+.h4 {
+    color: var(--baseColor);
+}
+.controls {
+    margin-bottom: 30px;
+}
+
+img {
+    padding: var(--spacing);
+    background: var(--baseColor);
+    filter: blur(var(--blur));
+}
+
+.footer {
+    background-color: #111;
+    color: white;
+    font-size: 16px;
+    color: #aaa;
+    padding: 20px;
+    text-align: center;
+    margin: 10px;
+}
+
+.footer a {
+    color: white;
+    margin: 0 16px;
+}

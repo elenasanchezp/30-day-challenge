@@ -1,5 +1,13 @@
 .header {
 	margin: 10px;
+	background-color: #111;
+	color: white;
+	padding: 20px;
+}
+
+.header a {
+    color: white;
+    margin: 0 16px;
 }
 
 .container {
@@ -7,10 +15,11 @@
     background-repeat: no-repeat; 
     background-size: cover;
     margin: 10px;
+    min-height: 425px;
 }
 
 .keys {
-	min-height: 100vh;
+	padding: 35px 25px;
 	align-items: center;
 	justify-content: center;
 	display: flex;

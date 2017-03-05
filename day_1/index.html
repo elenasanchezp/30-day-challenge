@@ -6,6 +6,7 @@
 		<title>Day 1 | 30-day-challenge</title>
 		<link rel="stylesheet" href="stylesheet/style.css"/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script type="text/javascript" src="js/script.js"></script>
 	</head>
 	<body>
 
@@ -60,36 +61,6 @@
 				<a href="https://twitter.com/elena_sanchez_p" title="Twitter">Twitter</a>
 			</div>
 		</div>
-
-		<script>
-
-			function playSound(e){
-				const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
-				const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
-
-				if(!audio){
-					return;
-				}
-
-				audio.currentTime = 0;
-				audio.play();
-
-				key.classList.add('playing'); 
-			}
-
-
-			function removeTransitionend(e){
-
-				if(e.propertyName !== 'transform') return;
-				this.classList.remove('playing'); 
-			}
-
-			const keys = document.querySelectorAll('.key'); 
-			keys.forEach(key => key.addEventListener('transitionend', removeTransitionend));
-
-			window.addEventListener('keydown', playSound);
-
-		</script>
 
 	</body>
 </html>
