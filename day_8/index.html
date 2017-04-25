@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Day 8 | 30-day-challenge</title>
+		<link rel="stylesheet" href="stylesheet/style.css"/>
+		<script type="text/javascript" src="js/script.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	</head>
+	<body>
+
+		<div class="header">  
+			<h1>Day 8 - Fun with HTML5 canvas</h1>
+			<a href="../index.html"> Go back to Calendar </a>
+		</div>
+
+		<div class="container">
+			<h4>Draw pushing the mouse down and up inside the area.</h4>
+			<canvas id="draw" width="800" height="425" style="border: 1px solid black"></canvas>
+			<script>
+				const canvas = document.querySelector('#draw');
+				const ctx = canvas.getContext('2d');
+
+				//canvas.width = window.innerWidth; 
+				//canvas.height = window.innerHeight; 
+
+				console.log(ctx);
+				ctx.strokeStyle = '#BADA55';
+				ctx.lineJoin = 'round';
+				ctx.lineCap = 'round';
+				ctx.lineWidth = 50; 
+
+				let isDrawing = false; 	
+				let lastX = 0; 
+				let lastY = 0; 
+				let hue = 0; 
+				let direction = true;
+
+				function draw(e){
+					// stop the fn from running when they are not moused down. 
+					if(!isDrawing) return; 
+
+					ctx.strokeStyle = "hsl(" + hue + ", 100%, 50%)";
+					ctx.beginPath(); 
+					
+					// start from 
+					ctx.moveTo(lastX, lastY); 
+
+					// go to
+					ctx.lineTo(e.offsetX, e.offsetY); 
+					ctx.stroke(); 
+
+					lastX = e.offsetX; 
+					lastY = e.offsetY;
+
+					hue++;
+					if (hue > 360) {
+						hue = 0; 
+					}
+
+					if (ctx.lineWidth >= 50 || ctx.lineWidth <= 1) {
+						direction = !direction; 
+					}
+					if (direction){
+						ctx.lineWidth++; 
+					} else {
+						ctx.lineWidth--; 
+					}
+					
+				}
+
+				canvas.addEventListener('mousemove', draw);
+				canvas.addEventListener('mousedown', (e) =>{
+					isDrawing = true;
+					lastX = e.offsetX; 
+					lastY = e.offsetY;
+				});
+				canvas.addEventListener('mouseup', () => isDrawing = false);
+				canvas.addEventListener('mouseout', () => isDrawing = false);
+
+			</script>
+		</div>
+
+		<div class="footer">  
+			<div class="social">
+				<a href="https://github.com/elenasanchezp" title="GitHub">GitHub</a>
+				<a href="https://www.linkedin.com/in/elena-s%C3%A1nchez-5572a726/" title="LinkedIn">LinkedIn</a>
+				<a href="https://twitter.com/elena_sanchez_p" title="Twitter">Twitter</a>
+			</div>
+		</div>
+	</body>
+</html>
