@@ -3,51 +3,29 @@
 window.onload = function(e){ 
 
  	// Get elements
-	const addItems = document.querySelector('.add-items'); 
-	const itemsList = document.querySelector('.plates');
-	const items = JSON.parse(localStorage.getItem('items')) || [];
+	const hero = document.querySelector('.hero'); 
+	const text = hero.querySelector('.my-text');
+	const walk = 100;
 
-	function addItem(e){
-		e.preventDefault();
+	function shadow(e){
+		const width = hero.offsetWidth; 
+		const height = hero.offsetHeight; 
+	
+		let  {offsetX: 	x, offsetY: y } = e; 
 
-		const text = (this.querySelector('[name=item]')).value;
-		const item = {
-			text: text, 
-			done: false
+		if (this !== e.target){
+			x = x + e.target.offsetLeft;
+			y = y + e.target.offsetTop;  
 		}
-		
-		items.push(item);
-		populateList(items, itemsList);
 
-		localStorage.setItem('items', JSON.stringify(items));
-		this.reset();
-	}
+		const xWalk = Math.round((x / width * walk) - (walk / 2)); 
+		const yWalk = Math.round((y / height * walk) - (walk / 2));
 
-	function toggleDone(e){
-		if(!e.target.matches('input')) return;
-
-		const el = e.target; 
-		const index = el.dataset.index;
-		items[index].done = !items[index].done;  
-		localStorage.setItem('items', JSON.stringify(items));
-		populateList(items, itemsList);
-	}
-
-	function populateList(plates = [], platesList){
-		platesList.innerHTML =  plates.map((plate, i) => {
-			return 	`
-				<li>
-					<input type="checkbox" data-index=${i} id="item${i}" ${plate.done ? 'checked' : ''} />
-					<label for="">${plate.text}</label>
-				</li>
-			`;
-		}).join(''); 
+		console.log(xWalk, yWalk);
+		text.style.textShadow = `${xWalk}px ${yWalk}px 0 #9D9D00 `;
 	}
 
 	// Hook up the event listeners 
-	addItems.addEventListener('submit', addItem); 
-	itemsList.addEventListener('click', toggleDone); 
-	
-	populateList(items, itemsList);
+	hero.addEventListener('mousemove', shadow);  
 }
 

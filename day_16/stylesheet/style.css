@@ -12,21 +12,11 @@
 }
 
 .container {
-    background-image: url(../images/background.jpg);
-    background-repeat: no-repeat;
     background-size: cover;
     margin: 10px;
     min-height: 425px;
     position: relative;
-}
-
-.wrapper {
-    position: absolute;
-    top: 40px;
-    width: 50%;
-    left: 25%;
-    padding: 20px;
-    background: white;
+    text-align: center;
 }
 
 .align-right {
@@ -45,40 +35,8 @@ h2 {
     font-weight: 300;
 }
 
-.plates {
-    margin: 0; 
-    padding: 0; 
-    text-align: left;
-    list-style: none;
-}
-
-.plates li {
-    border-bottom: 1px solid rgba(0, 0, 0, .2);
-    padding: 10px 0;
-    font-weight: 100;
-    display: flex;
-}
-.plates label {
-    flex: 1; 
-    cursor: pointer;
-}
-.plates input {
-    /* display: none; */
-}
-.plates input + label:before{
-    contain:"■"; 
-    margin-right: 10px; 
-}
-.plates input:checked + label:before{
-    contain:"";
-}
-.add-items {
-    margin-top: 30px; 
-}
-.add-items input {
-    padding: 10px; 
-    outline: 0; 
-    border: 1px solid rgba(0, 0, 0, .1);
+.my-text {
+    font-size: 100px;
 }
 
 .footer {
